@@ -5,7 +5,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def route_index():
-    return "Hello world"
+    return """
+    <p>Hello world</p>
+    <a href="/http">Http</a>
+    <a href="/wolf">Úlfurinn</a>
+    """
 
 @app.route("/http")
 def route_http():
@@ -17,6 +21,6 @@ def route_wolf():
 
 @app.route("/static/<dir>/<file>")
 def route_static(dir, file):
-    if dir in ["css", "img"]:
+    if dir in ["css", "img", "js"]:
         return app.send_static_file(f"{dir}/{file}")
     abort(404)
