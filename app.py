@@ -24,3 +24,6 @@ def route_static(dir, file):
     if dir in ["css", "img", "js"]:
         return app.send_static_file(f"{dir}/{file}")
     abort(404)
+
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
